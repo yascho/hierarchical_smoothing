@@ -1,0 +1,32 @@
+# pip install -r requirements.txt
+
+tqdm==4.64.1 
+ipywidgets>=7.0,<8.0
+numpy==1.23.5
+seaborn==0.12.2
+ipykernel==6.20.2
+statsmodels==0.13.5
+sacred==0.8.4 
+numba==0.56.4
+pytest==7.2.2
+matplotlib==3.7.1 
+seml==0.4.0
+gmpy2==2.1.5 
+
+# external
+sparse_smoothing @ git+https://github.com/abojchevski/sparse_smoothing@master
+
+# torch
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch
+torchvision 
+torchaudio 
+
+# pyg
+-f https://data.pyg.org/whl/torch-2.1.0+cu121.html
+pyg-lib 
+torch-scatter 
+torch-sparse
+torch-cluster
+torch-spline-conv
+torch-geometric 

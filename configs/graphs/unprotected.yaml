@@ -1,0 +1,47 @@
+seml:
+  executable: main.py
+  name: unprotected_gnn
+  output_dir: ~/log
+  project_root_dir: ../../
+
+slurm:
+  experiments_per_job: 1
+  sbatch_options:
+    gres: gpu:1        # num GPUs
+    mem: 100G          # memory # normal: 30, in batch: 300
+    cpus-per-task: 4   # num cores # gpu_large: 20
+    time: 2-00:00      # max time, D-HH:MM
+
+
+fixed:
+  conf.save: True
+  conf.save_dir: results/graphs/
+  hparams.dataset_path: data/graphs/
+  hparams.fixed_random_seeds_path: data/seeds.pt
+  hparams.device: 'cuda'
+  hparams.num_seeds: 5
+
+  hparams.datatype: "graphs"
+  hparams.protected: False
+
+  hparams.lr: 0.001
+  hparams.weight_decay: 5e-4
+  hparams.max_epochs: 1_000
+  hparams.early_stopping: 100
+  hparams.logging: False
+
+  hparams.smoothing_config.append_indicator: False
+
+cora_GAT:
+  fixed:
+    hparams.dataset: "cora_ml"
+    hparams.in_channels: 2879 
+    hparams.out_channels: 7
+    hparams.max_radius: 647
+
+    hparams.arch: "GAT"
+    hparams.k_heads: 8
+    hparams.hidden_channels: 8
+    hparams.p_dropout: 0.5
+    hparams.conv_dropout: 0.2
+    hparams.with_skip: False
