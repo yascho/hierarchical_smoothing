@@ -16,6 +16,8 @@ how to compute hierarchical smoothing certificates
 for images (<a href="./notebooks/demo-images.ipynb">demo-images.ipynb</a>) 
 and graphs (<a href="./notebooks/demo-graphs.ipynb">demo-graphs.ipynb</a>).
 
+We also provide pretrained models for efficient demonstration. If you want to use the pretrained ResNet50 model, execute `git lfs install` *before* cloning this repository.
+
 ## Install
 
 Instructions to install required dependencies:
