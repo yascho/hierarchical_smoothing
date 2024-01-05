@@ -36,7 +36,7 @@ To compute robustness certificates systematically on a cluster we provide [seml]
 **For images**:
 ```
 export CUBLAS_WORKSPACE_CONFIG=:4096:8 # for reproducibility
-seml hs add configs/graphs/*.yaml
+seml hs add configs/images/*.yaml
 seml hs start
 ```
 
