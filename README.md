@@ -13,8 +13,8 @@ Conference on Neural Information Processing Systems (NeurIPS), 2023<br>
 
 We provide two demo notebooks with examples of 
 how to compute hierarchical smoothing certificates 
-for images (<a href="./demo-images.ipynb">demo-images.ipynb</a>) 
-and graphs (<a href="./demo-graphs.ipynb">demo-graphs.ipynb</a>).
+for images (<a href="./notebooks/demo-images.ipynb">demo-images.ipynb</a>) 
+and graphs (<a href="./notebooks/demo-graphs.ipynb">demo-graphs.ipynb</a>).
 
 ## Install
 
