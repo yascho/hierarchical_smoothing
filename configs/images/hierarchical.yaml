@@ -1,0 +1,53 @@
+seml:
+  executable: main.py
+  name: hierarchical_images
+  output_dir: ~/log
+  project_root_dir: ../../
+
+slurm:
+  experiments_per_job: 1 
+  sbatch_options:
+    gres: gpu:1       # num GPUs
+    mem: 50G          # memory # gpu_large: 300 
+    cpus-per-task: 4  # num cores # gpu_large: 20
+    time: 2-00:00     # max time, D-HH:MM
+
+fixed:
+  conf.save: True
+  conf.save_dir: results/images/
+  hparams.dataset_path: data/images/
+  hparams.fixed_random_seeds_path: data/seeds.pt
+  hparams.device: 'cuda'
+  hparams.logging: True
+
+  hparams.datatype: "images"
+  hparams.protected: True
+
+  hparams.batch_size_training: 128
+  hparams.batch_size_inference: 300
+  hparams.lr: 0.01
+  hparams.momentum: 0.9
+  hparams.weight_decay: 5e-4
+  hparams.max_epochs: 400
+  hparams.early_stopping: 400
+  hparams.lr_scheduler: "cosine"
+
+  hparams.alpha: 0.01
+  hparams.n0: 1_000
+  hparams.n1: 10_000
+
+  hparams.smoothing_config.smoothing_distribution: "hierarchical_gaussian"
+  hparams.smoothing_config.append_indicator: True
+  hparams.smoothing_config.k: 150 # we will convert k to p in code
+  hparams.smoothing_config.std: 0.25
+
+resnet50_cifar10:
+  fixed:
+    hparams.dataset: "CIFAR10"
+    hparams.dataset_mean: [0.4914, 0.4822, 0.4465]
+    hparams.dataset_std: [0.2023, 0.1994, 0.2010]
+
+    hparams.arch: "ResNet50"
+    hparams.in_channels: 4
+    hparams.out_channels: 10
+    hparams.smoothing_config.d: 1024
