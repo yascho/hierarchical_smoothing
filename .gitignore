@@ -1,3 +1,4 @@
 data/images/
+data/precomputed/pretrained_ResNet50_CIFAR10.pt
 results/
 __pycache__/
